@@ -138,7 +138,7 @@ def func_ist(f):
       A = a
       B = b
       # Массив с операциями для сопоставления с массивом f
-      f2 = [int(A),int(B),int(not(A)),int(not(B)),int(A or B),int((not(A)) or   (not(B))),int((A or B) and ((not(A)) or (not(B))))]
+      f2 = [int(A),int(B),int(not(A)),int(not(B)),int(A or B),int((not(A)) or (not(B))),int((A or B) and ((not(A)) or (not(B))))]
       Pr = {f[i]: f2[i] for i in range(len(f))}
       # Промежуточная страка таблицы без значений
       print('\u251C', end ='')
