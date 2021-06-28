@@ -1,0 +1,5 @@
+1. [Вычисление суммы чисел](https://replit.com/@PolinaLazebniko/Lab1#main.py)
+2. [Построение таблицы истинности](https://replit.com/@PolinaLazebniko/Lab2#main.py)
+3. [Построение таблицы истинности, используя цикл](https://replit.com/@PolinaLazebniko/Lab3#main.py)
+4. [Поиск по строке и замена](https://replit.com/@PolinaLazebniko/Lab10#main.py)
+5. [Работа с файлами json и csv](https://replit.com/@PolinaLazebniko/Lab11#main.py)
