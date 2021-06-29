@@ -1,86 +1,67 @@
 # Инвариантная самостоятельная работа
 
-### [4.1. Разработать программу для считывания данных JSON-формата из файла и вывод их в табличном виде на экран. Организовать тестирование работоспособности программы с помощью assert, print.]()
-```python
-
-```
-### [4.2. Дополнение программы задания 4.1 (считывание данных JSON-формата) тестами с использованием библиотеки doctest.](https://repl.it/@PolinaLazebniko/Tema6-ISR-Zad32)
+### [4.1. Разработать программу для считывания данных JSON-формата из файла и вывод их в табличном виде на экран. Организовать тестирование работоспособности программы с помощью assert, print.](https://replit.com/@PolinaLazebniko/sem3-Tema4-ISR-41)
 ```python
 """
     Лазебникова Полина 
     ИВТ 2 курс
-    группа 1.1
+    группа 1.3-
 
     Инвариантная самостоятельная работа 
-    Задание 3.2: Разработка сценария с реализацией операции поиска подстроки в тексте.
-"""
-
-def search_all_str(input_str_f, searchable_str_f): 
-    """
-    Функция для поиска подстроки 
-
-    Входные данные - строка для поиска, строка, по которой идет поиск
-
-    Сначала ищет первое вхождение подстроки, и далее последующие, если вхождений нет,
-    то выводит сообщение об этом
-    """
-    rec = searchable_str_f.find(input_str_f)
-    if rec != -1:
-        print('Первое вхождение подстроки: ', rec)
-    else:
-        print('Нет вхождений подстроки')
-    while rec != -1:
-        rec = searchable_str_f.find(input_str_f, rec + len(input_str_f), len(searchable_str_f))
-        if rec != -1:
-            print('Вхождение подстроки: ', rec)
-        else:
-            print('Больше нет вхождений')
-
-def main():
-    """
-    Функция, которая принимает от пользователя строку для поиска и строку, по которой идет поиск и 
-    вызывает функцию search_all_str  
-    """
-    input_str = input("Введите строку для поиска: ")
-    searchable_str = input("Введите строку, по которой идет поиск: ")    
-    search_all_str(input_str, searchable_str)
-
-main()
-```
-### [4.3. Дополнение программы задания 4.1,4.2 (считывание данных JSONформата) тестами с использованием пакета py.test.](https://repl.it/@PolinaLazebniko/Tema6-ISR-Zad33)
-```python
-"""
-    Лазебникова Полина 
-    ИВТ 2 курс
-    группа 1.1
-
-    Инвариантная самостоятельная работа 
-    Задание 3.3: Создание скрипта для считывания данных справочных логов из текстового 
-    файла и преобразования их в CSV-формат с последующей записью в новый файл.
+    4.1. Разработать программу для считывания данных JSON-формата из файла и вывод их в табличном виде на экран. 
+    Организовать тестирование работоспособности программы с помощью assert, print.
 """
 
 import json
-import csv
 
-def json_f():
-    """
-    Функция для работы с json
-    """
-    handle = open('MOCK_DATA.json')
-    lines = json.load(handle)
-    return lines
+def json_table(data):
 
-def csv_f(lines):
-    """
-    Функция для работы с csv
-    """
-    with open('eggs.csv', 'w', newline='') as csvfile:
-        csv_writer = csv.writer(
-            csvfile, delimiter=';', quotechar='"',
-            quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow(list(lines[0].keys()))
-        for line in lines:
-            csv_writer.writerow(list(line.values()))
+  table = []
+  sstr = '| {id:^3} | {first_name:^10} | {last_name:^15} | {email:^30} | {gender:^6} | {ip_address:^16} |'
+  t_caption = '| {:^3} | {:^10} | {:^15} | {:^30} | {:^6} | {:^16} |'.format('id','first_name','last_name','email','gender','ip_address')
+  roof = '-'*len(t_caption)
+  
+  table.append(roof)  
+  table.append(t_caption)
+  table.append(roof)  
 
-csv_f(json_f())
+  for el in range(len(data)):
+      temp = data[el]
+      res = sstr.format(**temp)
+      table.append(res)
+  table.append(roof)
+  return(table)
+
+def test_func(func,arg):
+  """
+  Тест функции json_table
+  """
+  try:
+    assert type(func(arg)) is tuple
+  except:
+    print('Тест на тип не пройден', type(func(arg)))
+  try:
+    assert len(func(arg)) == 100
+  except:
+    print('Количество строк не соответствует -',len(func(arg)))
+
+def main():
+  with open('data.json') as f:
+    data_dict = json.load(f)
+
+  test_func(json_table,data_dict)
+  
+  t = json_table(data_dict)
+  for el in t:
+    print(el)
+  
+main()
+```
+### [4.2. Дополнение программы задания 4.1 (считывание данных JSON-формата) тестами с использованием библиотеки doctest.](https://replit.com/@PolinaLazebniko/sem3-Tema4-ISR-42#main.py)
+```python
+
+```
+### [4.3. Дополнение программы задания 4.1,4.2 (считывание данных JSONформата) тестами с использованием пакета py.test.](https://replit.com/@PolinaLazebniko/sem3-Tema4-ISR-43#main.py)
+```python
+
 ```
