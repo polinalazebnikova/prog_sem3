@@ -57,11 +57,3 @@ def main():
   
 main()
 ```
-### [4.2. Дополнение программы задания 4.1 (считывание данных JSON-формата) тестами с использованием библиотеки doctest.](https://replit.com/@PolinaLazebniko/sem3-Tema4-ISR-42#main.py)
-```python
-
-```
-### [4.3. Дополнение программы задания 4.1,4.2 (считывание данных JSONформата) тестами с использованием пакета py.test.](https://replit.com/@PolinaLazebniko/sem3-Tema4-ISR-43#main.py)
-```python
-
-```
